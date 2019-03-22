@@ -1,17 +1,12 @@
 package app
 
 import grails.gorm.multitenancy.*
+import app.BootstrapService
 
-@WithoutTenant
 class BootStrap {
-
-    @WithoutTenant
-    void method() {
-        Book book = new Book(title: 'created').save(failOnError: true)
-    }
-
+    def bootstrapService
     def init = { servletContext ->
-        method()
+        bootstrapService.globalBootstrap()
     }
     def destroy = {
     }
