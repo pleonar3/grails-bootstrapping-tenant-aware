@@ -4,6 +4,7 @@ import grails.gorm.transactions.Transactional
 import grails.gorm.multitenancy.*
 
 @Transactional
+@WithoutTenant
 class BootstrapService {
 
     @WithoutTenant
