@@ -5,8 +5,13 @@ import grails.gorm.multitenancy.*
 @WithoutTenant
 class BootStrap {
 
-    def init = { servletContext ->
+    @WithoutTenant
+    void method() {
         Book book = new Book(title: 'created').save(failOnError: true)
+    }
+
+    def init = { servletContext ->
+        method()
     }
     def destroy = {
     }
